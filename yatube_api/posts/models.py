@@ -44,3 +44,8 @@ class Comment(models.Model):
     created = models.DateTimeField(
         'Дата добавления', auto_now_add=True, db_index=True
     )
+
+    def __str__(self):
+        if len(self.text) > 20:
+            return f'{self.text[:20]}...'
+        return self.text
